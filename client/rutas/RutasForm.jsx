@@ -5,15 +5,24 @@ export default class RutasForm extends Component {
   addRuta(event){
     event.preventDefault();
     var text = this.refs.rutaTitle.value.trim();
-    // var longitud = this.refs.rutaLongitud.value;
-    //console.log(longitud);
+    var longitud = this.refs.rutaLongitud.value;
+    var latitud = this.refs.rutaLatitud.value;
+    var url = this.refs.rutaImgUrl.value;
+
     console.log(text);
+    console.log(longitud);
+    console.log(latitud);
+    console.log(url);
+
     if(text){
-      Meteor.call('addRuta', text, (error, data)=>{
+      Meteor.call('addRuta', text, longitud, latitud, url, (error, data)=>{
         if(error){
           Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
         }else{
         this.refs.rutaTitle.value = "";
+        this.refs.rutaLongitud.value = "";
+        this.refs.rutaLatitud.value = "";
+        this.refs.rutaImgUrl.value = "";
       }
     });
 
@@ -27,10 +36,22 @@ export default class RutasForm extends Component {
           type="text"
           ref="rutaTitle"
           placeholder="Agrega una ruta" />
-          <input
-            type="text"
-            ref="rutaLongitud"
-            placeholder="Agrega una ruta" />
+        <input
+          type="number"
+          ref="rutaLongitud"
+          placeholder="Longitud" />
+        <input
+          type="number"
+          ref="rutaLatitud"
+          placeholder="Latitud"
+          step="any"/>
+        <input
+          type="text"
+          ref="rutaImgUrl"
+          placeholder="url de imagen"
+          step="any" />
+        <input
+          type="submit" />
       </form>
     )
   }

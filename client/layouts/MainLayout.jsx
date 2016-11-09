@@ -6,7 +6,6 @@ export const MainLayout = ({content}) => (
     <header>
       <h2>RutaTj.IO</h2>
       <nav>
-        <a href="/">Resolutions</a>
         <a href="/rutas">Rutas</a>
         <a href="/about">Nosotros</a>
 

@@ -16,19 +16,15 @@ deleteResolution(){
     const status = this.props.ruta.complete ? <span className="completed">completed</span> : '';
 
     return(
-      <li className={rutaClass}>
-        <input type="checkbox"
-          readOnly={true}
-          checked={this.props.ruta.complete}
-          onClick={this.toggleChecked.bind(this)} />
-
-        <a href={`/rutas/${this.props.ruta._id}`}>{this.props.ruta.text}</a>
-        {status}
+      <div>
+        <img src="this.propr.ruta.url" />
+        <h4><a href={`/rutas/${this.props.ruta._id}`}>{this.props.ruta.text}</a></h4>
+        <h5></h5>
         <button className="btn-cancel"
           onClick={this.deleteResolution.bind(this)}>
           &times;
         </button>
-      </li>
+      </div>
     )
   }
 }

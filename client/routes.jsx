@@ -11,7 +11,7 @@ import RutaDetail from './rutas/RutaDetail.jsx';
 FlowRouter.route('/', {
   action() {
     mount(MainLayout,{
-      content: (<ResolutionsWrapper />),
+      content: (<RutasWrapper />),
     })
   }
 });
@@ -20,14 +20,6 @@ FlowRouter.route('/about', {
   action() {
     mount(MainLayout,{
       content: (<About />),
-    })
-  }
-});
-
-FlowRouter.route('/resolutions/:id', {
-  action(params) {
-    mount(MainLayout,{
-      content: (<ResolutionDetail id={params.id} />),
     })
   }
 });

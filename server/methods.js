@@ -28,14 +28,15 @@ Meteor.methods({
       }
       Resolutions.remove(resolution._id);
     },
-  addRuta(ruta){
+  addRuta(ruta, longitud, latitud, url){
     if(!Meteor.userId()){
       throw new Meteor.Error('No esta autorizado');
     }
       Rutas.insert({
         text: ruta,
-        longitud: 5,
-        latitud:10,
+        longitud: longitud,
+        latitud: latitud,
+        url: url,
         complete: false,
         createdAt: new Date(),
         user: Meteor.userId()
