@@ -17,7 +17,7 @@ deleteResolution(){
 
     return(
       <div>
-        <img src="this.propr.ruta.url" />
+        <img src={this.props.ruta.url} />
         <h4><a href={`/rutas/${this.props.ruta._id}`}>{this.props.ruta.text}</a></h4>
         <h5></h5>
         <button className="btn-cancel"
