@@ -4,7 +4,10 @@ export default class RutaMap extends Component{
 
   render(){
     return(
-      <h1>Map Test</h1>
+      <div>
+        <h1>Map Test</h1>
+
+      </div>
     )
   }
 }
