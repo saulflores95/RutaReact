@@ -10,6 +10,7 @@ deleteResolution(){
   Meteor.call('deleteRuta', this.props.ruta);
 }
 
+
   render(){
 
     const rutaClass = this.props.ruta.complete ? "checked" : "";
@@ -17,13 +18,24 @@ deleteResolution(){
 
     return(
       <div>
-        <img src={this.props.ruta.url} />
-        <h4><a href={`/rutas/${this.props.ruta._id}`}>{this.props.ruta.text}</a></h4>
-        <h5></h5>
-        <button className="btn-cancel"
-          onClick={this.deleteResolution.bind(this)}>
-          &times;
-        </button>
+        <div className="col s12 m7">
+          <h2 className="header">{this.props.ruta.text}</h2>
+          <div className="card horizontal">
+            <div className="card-image"><img src={this.props.ruta.url} /></div>
+            <div className="card-stacked">
+              <div className="card-content">
+
+              </div>
+              <div className="card-action">
+                <a href={`/rutas/${this.props.ruta._id}`}>mas info</a>
+              </div>
+            </div>
+            <button className="btn-floating btn-large waves-effect waves-light red"
+              onClick={this.deleteResolution.bind(this)}>
+              &times;
+            </button>
+          </div>
+        </div>
       </div>
     )
   }

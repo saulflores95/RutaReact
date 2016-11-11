@@ -50,7 +50,7 @@ export default class RutasForm extends Component {
           ref="rutaImgUrl"
           placeholder="url de imagen"
           step="any" />
-        <input
+        <input className="btn btn-large"
           type="submit" />
       </form>
     )

@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import AccountsUI from '../AccountsUI.jsx';
 
 export const MainLayout = ({content}) => (
@@ -12,6 +13,7 @@ export const MainLayout = ({content}) => (
         <AccountsUI />
       </nav>
     </header>
+
     <main style={{margin: '10em'}}>
       {content}
     </main>

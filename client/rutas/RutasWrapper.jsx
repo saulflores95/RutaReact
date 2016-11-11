@@ -5,6 +5,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import RutasForm from './RutasForm.jsx';
 import RutaSingle from './RutaSingle.jsx';
 
+
 Rutas = new Mongo.Collection("rutas");
 
 export default class RutasWrapper extends TrackerReact(React.Component) {
@@ -28,27 +29,14 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
 
   render(){
     return (
-      <ReactCSSTransitionGroup
-      component="div"
-      transitionName="route"
-      transitionEnterTimeout={600}
-      transitionAppearTimeout={600}
-      transitionLeaveTimeout={400}
-      transitionAppear={true}    >
-        <h1>Rutas y Tiempos</h1>
+      <div>
+      <h2>Rutas y Tiempos</h2>
         <RutasForm />
-        <ReactCSSTransitionGroup
-        className="rutas"
-        component='ul'
-        transitionName='resolutionLoad'
-        transitionEnterTimeout={600}
-        transitionLeaveTimeout={400}>
-
           {this.rutas().map((ruta)=>{
-            return <RutaSingle key={ruta._id} ruta={ruta}/>
+            return <RutaSingle key={ruta._id} ruta={ruta} />
           })}
-          </ReactCSSTransitionGroup>
-          </ReactCSSTransitionGroup>
+      </div>
+
     )
   }
 }
