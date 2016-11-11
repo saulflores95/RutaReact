@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
-
+import RutaMap from './RutaMap.jsx';
 export default class RutaDetail extends Component{
   constructor(){
     super();
@@ -28,6 +28,7 @@ export default class RutaDetail extends Component{
           <h1>{res.text}</h1>
           <h1>latitud:  {res.latitud}</h1>
           <h1>longitud:  {res.longitud}</h1>
+          <RutaMap />
 
         </div>
       )

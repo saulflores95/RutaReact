@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 export default class RutaSingle extends Component {
 
 toggleChecked(){
