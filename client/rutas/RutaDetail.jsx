@@ -35,12 +35,20 @@ export default class RutaDetail extends Component{
 
     return(
       <div>
-        <h1>{res.text}</h1>
-        <h1>Latitud:  {res.latitud}</h1>
-        <h1>longitud:  {res.longitud}</h1>
-        <div id="map-container" style={styles.leafletContainer}>
-          <RutaMap />
+        <div className="row">
+          <div className="col l3">
+            <h1>{res.text}</h1>
+            <h1>Latitud:  {res.latitud}</h1>
+            <h1>longitud:  {res.longitud}</h1>
+          </div>
+          <div className="col l9">
+            <div id="map-container" style={styles.leafletContainer}>
+              <RutaMap />
+            </div>
+          </div>
         </div>
+
+
       </div>
     )
   }
