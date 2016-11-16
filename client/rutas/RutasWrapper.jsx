@@ -30,11 +30,16 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
   render(){
     return (
       <div>
-      <h2>Rutas y Tiempos</h2>
-        <RutasForm />
+        <div className="row">
+          <div className="col l2">
+            <RutasForm />
+          </div>
+          <div className="col l10">
           {this.rutas().map((ruta)=>{
             return <RutaSingle key={ruta._id} ruta={ruta} />
           })}
+          </div>
+        </div>
       </div>
 
     )

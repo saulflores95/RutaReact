@@ -37,8 +37,10 @@ themeteorchef:bert
 
 check
 
-mdg:geolocation
+metrophobe:materialize
 
 dburles:google-maps
 
-metrophobe:materialize
+mdg:geolocation
+
+react-meteor-data

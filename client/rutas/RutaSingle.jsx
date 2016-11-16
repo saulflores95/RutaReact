@@ -16,28 +16,34 @@ deleteResolution(){
 
     const rutaClass = this.props.ruta.complete ? "checked" : "";
     const status = this.props.ruta.complete ? <span className="completed">completed</span> : '';
-
+    var d = new Date(); // for now
+    d.getHours(); // => 9
+    d.getMinutes(); // =>  30
+    d.getSeconds(); // => 51
     return(
       <div>
-        <div className="col s12 m7">
-          <h2 className="header">{this.props.ruta.text}</h2>
-          <div className="card horizontal">
-            <div className="card-image"><img src={this.props.ruta.url} /></div>
-            <div className="card-stacked">
-              <div className="card-content">
-
+        <ul className="collection">
+            <li className="collection-item avatar">
+              <div className="row">
+                <div className="col l11 m11 s11">
+                  <img src={this.props.ruta.url} alt="" className="circle" />
+                  <span className="title">{this.props.ruta.text}</span>
+                  <p>
+                    {`${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`}
+                  </p>
+                  <a href={`/rutas/${this.props.ruta._id}`} class="secondary-content"><i class="material-icons">mas info</i></a>
+                </div>
+                <div className="col l1 m1">
+                  <button className="btn-floating btn-large waves-effect waves-light red"
+                    onClick={this.deleteResolution.bind(this)}>
+                    &times;
+                  </button>
+                </div>
               </div>
-              <div className="card-action">
-                <a href={`/rutas/${this.props.ruta._id}`}>mas info</a>
-              </div>
-            </div>
-            <button className="btn-floating btn-large waves-effect waves-light red"
-              onClick={this.deleteResolution.bind(this)}>
-              &times;
-            </button>
-          </div>
-        </div>
+            </li>
+        </ul>
       </div>
+
     )
   }
 }
