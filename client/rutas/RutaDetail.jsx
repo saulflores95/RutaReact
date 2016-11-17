@@ -47,6 +47,8 @@ export default class RutaDetail extends Component{
             </div>
           </div>
         </div>
+
+
       </div>
     )
   }
