@@ -23,6 +23,7 @@ export default class RutasForm extends Component {
         this.refs.rutaLongitud.value = "";
         this.refs.rutaLatitud.value = "";
         this.refs.rutaImgUrl.value = "";
+
       }
     });
 
