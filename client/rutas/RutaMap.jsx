@@ -10,7 +10,18 @@ export default class RutaMap extends Component {
       lat: 32.53259,
       lng: -116.96877,
       zoom: 10,
+      subscription: {
+        rutas: Meteor.subscribe("allRutas")
+      }
     };
+  }
+
+  componentWillUnmount(){
+    this.state.subscription.rutas.stop();
+  }
+
+  rutas(){
+    return Rutas.find().fetch();
   }
 
   render() {
@@ -21,11 +32,13 @@ export default class RutaMap extends Component {
           attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
         />
-        <Marker position={position}>
-          <Popup>
-            <span>Location. <br/>Bitch</span>
-          </Popup>
-        </Marker>
+        {this.rutas().map((ruta)=>{
+          return <Marker position={[ruta.latitud, ruta.longitud]}>
+            <Popup>
+              <span>Location. <br/>{ruta.text}</span>
+            </Popup>
+          </Marker>
+        })}
       </Map>
     );
   }

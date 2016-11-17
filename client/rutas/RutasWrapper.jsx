@@ -46,7 +46,7 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
           </div>
           <div className="col l8">
             <div style={styles.leafletContainer}>
-              <RutaMap />
+                 <RutaMap />
             </div>
           </div>
           <div className="col l2">
