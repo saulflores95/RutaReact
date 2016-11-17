@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import RutasForm from './RutasForm.jsx';
 import RutaSingle from './RutaSingle.jsx';
 import RutaMap from './RutaMap.jsx';
