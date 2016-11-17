@@ -39,7 +39,8 @@ export default class RutasForm extends Component {
         <input
           type="number"
           ref="rutaLongitud"
-          placeholder="Longitud" />
+          placeholder="Longitud"
+          step="any" />
         <input
           type="number"
           ref="rutaLatitud"
@@ -48,8 +49,7 @@ export default class RutasForm extends Component {
         <input
           type="text"
           ref="rutaImgUrl"
-          placeholder="url de imagen"
-          step="any" />
+          placeholder="url de imagen" />
         <input className="btn btn-large"
           type="submit" />
       </form>

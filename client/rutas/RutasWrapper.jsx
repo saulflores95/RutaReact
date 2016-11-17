@@ -39,12 +39,12 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
     return (
       <div>
         <div className="row">
-          <div className="col l2">
+          <div className="col l2 m4 s6">
             {this.rutas().map((ruta)=>{
               return <RutaSingle key={ruta._id} ruta={ruta} />
             })}
           </div>
-          <div className="col l8">
+          <div className="col l8 m8 s6">
             <div style={styles.leafletContainer}>
                  <RutaMap />
             </div>
