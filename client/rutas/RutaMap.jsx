@@ -18,7 +18,7 @@ export default class RutaMap extends Component {
     return (
       <Map center={position} zoom={this.state.zoom}>
         <TileLayer
-          attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+          attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
         />
         <Marker position={position}>

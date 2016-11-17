@@ -28,21 +28,21 @@ export default class RutaDetail extends Component{
     var styles = {
       leafletContainer: {
         width: '100%',
-        height: '500px',
-        backgroundColor: 'red',
+        height: '1000px',
+
       }
     }
 
     return(
       <div>
         <div className="row">
-          <div className="col l3">
+          <div className="col l3 m3 s6">
             <h1>{res.text}</h1>
             <h1>Latitud:  {res.latitud}</h1>
             <h1>longitud:  {res.longitud}</h1>
           </div>
-          <div className="col l9">
-            <div id="map-container" style={styles.leafletContainer}>
+          <div className="col l9 m9 s6">
+            <div style={styles.leafletContainer}>
               <RutaMap />
             </div>
           </div>
