@@ -39,8 +39,6 @@ check
 
 metrophobe:materialize
 
-dburles:google-maps
-
 mdg:geolocation
 
 react-meteor-data

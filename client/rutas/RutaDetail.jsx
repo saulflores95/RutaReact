@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
-import RutaMap from './RutaMap.jsx';
+import RutaSingleMap from './RutaSingleMap.jsx';
 export default class RutaDetail extends Component{
   constructor(){
     super();
@@ -43,7 +43,7 @@ export default class RutaDetail extends Component{
           </div>
           <div className="col l9 m9 s6">
             <div style={styles.leafletContainer}>
-              <RutaMap />
+              <RutaSingleMap ruta={res} />
             </div>
           </div>
         </div>
