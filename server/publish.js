@@ -16,3 +16,9 @@ Meteor.publish("allRutas", function(){
 Meteor.publish("userRutas", function(){
   return Rutas.find({user: this.userId});
 });
+
+Meteor.publish("userStatus", function() {
+  if (this.UserId) { // check if there is a logged in user
+    return Meteor.find({ "status.online": true })
+  } else { return [] }
+});

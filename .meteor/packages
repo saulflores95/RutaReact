@@ -42,3 +42,5 @@ metrophobe:materialize
 mdg:geolocation
 
 react-meteor-data
+
+mizzao:user-status
