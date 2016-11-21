@@ -61,4 +61,16 @@ Meteor.methods({
       Rutas.remove(ruta._id);
     },
 
+  updateUser(user, latitude,longitude) {
+      if (Meteor.userId() == user._id) {
+        console.log(latitude);
+        Meteor.users.update(user._id, {
+          $set: {
+            latitude: latitude,
+            longitude: longitude,
+          }
+        });
+      }
+    }
+
 });

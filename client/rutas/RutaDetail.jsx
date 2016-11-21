@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import RutaSingleMap from './RutaSingleMap.jsx';
+import OnlineUserList from '../users/OnlineUserList';
 
 export default class RutaDetail extends Component{
   constructor(){
@@ -38,9 +39,7 @@ export default class RutaDetail extends Component{
       <div>
         <div className="row">
           <div className="col l3 m3 s6">
-            <h1>{res.text}</h1>
-            <h1>Latitud:  {res.latitud}</h1>
-            <h1>longitud:  {res.longitud}</h1>
+            <h3>{res.text}</h3>
           </div>
           <div className="col l9 m9 s6">
             <div style={styles.leafletContainer}>
