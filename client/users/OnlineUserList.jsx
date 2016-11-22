@@ -26,9 +26,10 @@ export default class OnlineUserList extends TrackerReact(Component){
 
   updateUserLocation(user, lat, lng){
       Meteor.call('updateUser', user, lat, lng);
+      console.log('UserId: ' + user._id);
+      console.log('New Latitude: ' + lat);
+      console.log('New Longitude: ' + lng);
   }
-
-
 
   render(){
     const userPosition = Geolocation.latLng();
@@ -36,14 +37,12 @@ export default class OnlineUserList extends TrackerReact(Component){
       <div id="userListComponent">
         <h3>Online User List</h3>
         {this.allUsers().map((user)=>{
+          this.updateUserLocation(user, userPosition.lat, userPosition.lng);
           return(
             <div>
               <h4>{user._id} </h4>
               <h5>{user.latitude}</h5>
               <h5>{user.longitude}</h5>
-              <button onClick={this.updateUserLocation.bind(this, user, userPosition.lat, userPosition.lng)}>
-                Update Settings
-              </button>
             </div>
           )
         })}
