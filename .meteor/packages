@@ -20,17 +20,27 @@ shell-server@0.2.1            # Server-side component of the `meteor shell` comm
 
 
 kadira:flow-router
-meteortoys:allthings
+
 ultimatejs:tracker-react
-mquandalle:stylus
 
 accounts-ui
+
+accounts-base
+
 accounts-password
+
 npm-bcrypt@0.8.7
+
 session
 
 themeteorchef:bert
+
 check
 
+metrophobe:materialize
+
 mdg:geolocation
-dburles:google-maps
+
+react-meteor-data
+
+mizzao:user-status

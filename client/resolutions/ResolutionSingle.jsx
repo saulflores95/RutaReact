@@ -10,6 +10,7 @@ deleteResolution(){
   Meteor.call('deleteResolution', this.props.resolution);
 }
 
+
   render(){
 
     const resolutionClass = this.props.resolution.complete ? "checked" : "";

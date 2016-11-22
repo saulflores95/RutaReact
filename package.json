@@ -5,10 +5,16 @@
     "start": "meteor run"
   },
   "dependencies": {
+
     "meteor-node-stubs": "~0.2.0",
     "react": "^15.3.2",
-    "react-addons-css-transition-group": "^15.3.2",
-    "react-dom": "^15.3.2"
+    "react-dom": "^15.3.2",
+    "immutability-helper": "^2.0.0",
+    "meteor-node-stubs": "~0.2.0",
+    "muicss": "^0.9.4",
+    "react-mounter": "^1.2.0",
+    "react-tap-event-plugin": "^1.0.0",
+    "react-toolbox": "^1.2.5"
   },
   "version": "1.0.0",
   "main": "index.js",

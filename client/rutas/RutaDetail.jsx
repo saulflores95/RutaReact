@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
+import ReactDOM from 'react-dom';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
+import RutaSingleMap from './RutaSingleMap.jsx';
 
 export default class RutaDetail extends Component{
   constructor(){
@@ -12,6 +14,7 @@ export default class RutaDetail extends Component{
     }
   }
 
+
   ruta(){
     return Rutas.findOne(this.props.id);
   }
@@ -23,13 +26,29 @@ export default class RutaDetail extends Component{
       return(<div>Loading...</div>);
     }
 
-      return(
-        <div>
-          <h1>{res.text}</h1>
-          <h1>latitud:  {res.latitud}</h1>
-          <h1>longitud:  {res.longitud}</h1>
+    var styles = {
+      leafletContainer: {
+        width: '100%',
+        height: '1000px',
 
+      }
+    }
+
+    return(
+      <div>
+        <div className="row">
+          <div className="col l3 m3 s6">
+            <h3>{res.text}</h3>
+          </div>
+          <div className="col l9 m9 s6">
+            <div style={styles.leafletContainer}>
+              <RutaSingleMap ruta={res} />
+            </div>
+          </div>
         </div>
-      )
+
+
+      </div>
+    )
   }
 }

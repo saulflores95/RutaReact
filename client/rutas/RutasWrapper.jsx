@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import RutasForm from './RutasForm.jsx';
 import RutaSingle from './RutaSingle.jsx';
+import RutaMap from './RutaMap.jsx';
+import OnlineUserList from '../users/OnlineUserList.jsx';
+
 
 Rutas = new Mongo.Collection("rutas");
 
@@ -27,28 +29,34 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
   }
 
   render(){
-    return (
-      <ReactCSSTransitionGroup
-      component="div"
-      transitionName="route"
-      transitionEnterTimeout={600}
-      transitionAppearTimeout={600}
-      transitionLeaveTimeout={400}
-      transitionAppear={true}    >
-        <h1>Rutas y Tiempos</h1>
-        <RutasForm />
-        <ReactCSSTransitionGroup
-        className="rutas"
-        component='ul'
-        transitionName='resolutionLoad'
-        transitionEnterTimeout={600}
-        transitionLeaveTimeout={400}>
+    var styles = {
+      leafletContainer: {
+        width: '100%',
+        height: '1000',
 
-          {this.rutas().map((ruta)=>{
-            return <RutaSingle key={ruta._id} ruta={ruta}/>
-          })}
-          </ReactCSSTransitionGroup>
-          </ReactCSSTransitionGroup>
+      }
+    }
+    return (
+      <div>
+        <div className="row">
+          <div className="col l2 m4 s6">
+            {this.rutas().map((ruta)=>{
+              return <RutaSingle key={ruta._id} ruta={ruta} />
+            })}
+          </div>
+          <div className="col l8 m8 s6">
+            <div style={styles.leafletContainer}>
+                 <RutaMap />
+            </div>
+          </div>
+          <div className="col l2">
+            <RutasForm />
+            <OnlineUserList />
+
+          </div>
+        </div>
+      </div>
+
     )
   }
 }
