@@ -4,6 +4,7 @@ import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import RutasForm from './RutasForm.jsx';
 import RutaSingle from './RutaSingle.jsx';
 import RutaMap from './RutaMap.jsx';
+import OnlineUserList from '../users/OnlineUserList.jsx';
 
 
 Rutas = new Mongo.Collection("rutas");
@@ -50,6 +51,8 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
           </div>
           <div className="col l2">
             <RutasForm />
+            <OnlineUserList />
+
           </div>
         </div>
       </div>

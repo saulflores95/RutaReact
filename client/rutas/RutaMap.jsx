@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import ReactDOM from 'react-dom';
-import OnlineUserList from '../users/OnlineUserList.jsx';
+import OnlineUserMarker from '../users/OnlineUserMarker.jsx';
 
 
 export default class RutaMap extends Component {
@@ -41,7 +41,7 @@ export default class RutaMap extends Component {
             </Popup>
           </Marker>
         })}
-        <OnlineUserList />
+        <OnlineUserMarker />
       </Map>
     );
   }

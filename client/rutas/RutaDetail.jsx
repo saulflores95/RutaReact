@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import RutaSingleMap from './RutaSingleMap.jsx';
-import OnlineUserList from '../users/OnlineUserList';
 
 export default class RutaDetail extends Component{
   constructor(){
