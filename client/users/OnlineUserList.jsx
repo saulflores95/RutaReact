@@ -25,8 +25,9 @@ export default class OnlineUserList extends TrackerReact(Component){
   }
 
   updateUserLocation(user, lat, lng){
-    Meteor.call('updateUser', user, lat, lng);
+      Meteor.call('updateUser', user, lat, lng);
   }
+
 
 
   render(){
@@ -40,7 +41,7 @@ export default class OnlineUserList extends TrackerReact(Component){
               <h4>{user._id} </h4>
               <h5>{user.latitude}</h5>
               <h5>{user.longitude}</h5>
-              <button onClick={this.updateUserLocation(this, user, userPosition.lat, userPosition.lng)}>
+              <button onClick={this.updateUserLocation.bind(this, user, userPosition.lat, userPosition.lng)}>
                 Update Settings
               </button>
             </div>
