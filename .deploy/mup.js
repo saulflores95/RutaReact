@@ -19,7 +19,7 @@ module.exports = {
       serverOnly: true,
     },
     env: {
-      ROOT_URL: 'http://45.55.0.220/',
+      ROOT_URL: 'https://rutaTj.io',
       MONGO_URL: 'mongodb://rutaTJ:shadow1poloboy1@ds035826.mlab.com:35826/rutatj',
       PORT:3000,
     },
@@ -28,11 +28,5 @@ module.exports = {
     deployCheckWaitTime: 60
   },
 
-  mongo: {
-    oplog: true,
-    port: 27017,
-    servers: {
-      one: {},
-    },
-  },
+
 };

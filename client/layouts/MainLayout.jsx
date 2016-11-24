@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import AccountsUI from '../AccountsUI.jsx';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 
 export const MainLayout = ({content}) => (
@@ -19,7 +20,9 @@ export const MainLayout = ({content}) => (
   </nav>
 
     <main>
-      {content}
+      <MuiThemeProvider>
+        {content}
+      </MuiThemeProvider>
     </main>
   </div>
 )
