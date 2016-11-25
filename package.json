@@ -27,7 +27,7 @@
     "react-dom": "^15.3.2",
     "react-leaflet": "^1.0.0",
     "react-mounter": "^1.2.0",
-    "react-tap-event-plugin": "^1.0.0",
+    "react-tap-event-plugin": "^2.0.0",
     "react-toolbox": "^1.2.5"
   },
   "version": "1.0.0",
