@@ -52,6 +52,7 @@ handleClose() {
             <Drawer
               open={this.state.open}
               width={300}
+              docked={false}
               onRequestChange={(open) => this.setState({open})}>
               <MenuItem onTouchTap={this.handleClose} href="/">Home</MenuItem>
               <MenuItem onTouchTap={this.handleClose} href="/about">About us</MenuItem>
