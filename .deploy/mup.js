@@ -1,7 +1,7 @@
 module.exports = {
   servers: {
     one: {
-      host: '45.55.0.220',
+      host: '107.170.233.245',
       username: 'root',
       // pem:
       password: 'poloboy1',
@@ -19,7 +19,7 @@ module.exports = {
       serverOnly: true,
     },
     env: {
-      ROOT_URL: 'https://rutaTj.io',
+      ROOT_URL: 'http://rutatj.io',
       MONGO_URL: 'mongodb://rutaTJ:shadow1poloboy1@ds035826.mlab.com:35826/rutatj',
       PORT:3000,
     },

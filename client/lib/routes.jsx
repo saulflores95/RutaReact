@@ -3,8 +3,6 @@ import {mount} from 'react-mounter';
 
 import {MainLayout} from '../layouts/MainLayout.jsx';
 import About from '../About.jsx';
-import ResolutionsWrapper from '../resolutions/ResolutionsWrapper.jsx';
-import ResolutionDetail from '../resolutions/ResolutionDetail.jsx';
 import RutasWrapper from '../rutas/RutasWrapper.jsx';
 import RutaDetail from '../rutas/RutaDetail.jsx';
 
