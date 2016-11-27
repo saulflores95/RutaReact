@@ -14,11 +14,9 @@ export default class RutaDetail extends Component{
     }
   }
 
-
   ruta(){
     return Rutas.findOne(this.props.id);
   }
-
 
   render(){
     let res = this.ruta();
@@ -30,10 +28,8 @@ export default class RutaDetail extends Component{
       leafletContainer: {
         width: '100%',
         height: '1000px',
-
       }
     }
-
     return(
       <div>
         <div className="row">
@@ -51,4 +47,5 @@ export default class RutaDetail extends Component{
       </div>
     )
   }
+
 }

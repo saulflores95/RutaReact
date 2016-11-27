@@ -4,6 +4,10 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import FloatingActionButton from 'material-ui/FloatingActionButton';
 import Paper from 'material-ui/Paper';
+import {List, ListItem} from 'material-ui/List';
+import Divider from 'material-ui/Divider';
+import Avatar from 'material-ui/Avatar';
+import ActionInfo from 'material-ui/svg-icons/action/info';
 
 export default class RutaSingle extends Component {
 
@@ -11,7 +15,7 @@ toggleChecked(){
   Meteor.call('toggleRuta', this.props.ruta);
 }
 
-deleteResolution(){
+deleteRuta(){
   Meteor.call('deleteRuta', this.props.ruta);
 }
 
@@ -20,41 +24,24 @@ deleteResolution(){
 
     const rutaClass = this.props.ruta.complete ? "checked" : "";
     const status = this.props.ruta.complete ? <span className="completed">completed</span> : '';
+    this.props.ruta.url = 'https://tijuanaesmas.files.wordpress.com/2012/07/4.jpg';
     var d = new Date(); // for now
     d.getHours(); // => 9
     d.getMinutes(); // =>  30
     d.getSeconds(); // => 51
-    var container = {
-      'width':'100%'
-    };
+
     return(
       <div>
         <MuiThemeProvider>
-        <div className={container}>
-          <Paper>
-            <ul>
-              <li>
-                <img src={this.props.ruta.url} alt="" />
-                <span>{this.props.ruta.text}</span>
-                <p>
-                  {`${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`}
-                </p>
-                <a href={`/rutas/${this.props.ruta._id}`}>mas info</a>
-                <div>
-                  <MuiThemeProvider>
-                    <FloatingActionButton
-                      mini={true}
-                      secondary={true}
-                      onClick={this.deleteResolution.bind(this)}>
-                      <NavigationClose />
-                    </FloatingActionButton>
-                  </MuiThemeProvider>
-                </div>
-              </li>
-            </ul>
-          </Paper>
-          </div>
-
+            <List>
+              <ListItem
+                leftAvatar={<Avatar src={this.props.ruta.url}/>}
+                rightIcon={<ActionInfo onClick={this.deleteRuta.bind(this)}/>}
+                primaryText={this.props.ruta.text}
+                //secondaryText={{`${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`}}
+                href={`/rutas/${this.props.ruta._id}`}
+                />
+              </List>
         </MuiThemeProvider>
       </div>
     )

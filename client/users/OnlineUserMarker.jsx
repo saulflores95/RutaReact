@@ -24,18 +24,12 @@ export default class OnlineUserMarker extends TrackerReact(Component){
     return Meteor.users.find();
   }
 
-
   render(){
-
     const userPosition = Geolocation.latLng();
     var busMarker = L.icon({
       iconUrl: 'http://www.clker.com/cliparts/c/R/Y/9/m/P/blue-bus-190-hi.png',
       iconSize: [80, 55],
       popupAnchor: [0, -10],
-    //  popupAnchor: [-3, -76],
-    //  shadowUrl: '',
-    //  shadowSize: [68, 95],
-    //  shadowAnchor: [22, 94]
     });
     return(
       <div>

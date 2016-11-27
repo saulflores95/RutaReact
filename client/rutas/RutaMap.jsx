@@ -56,4 +56,5 @@ export default class RutaMap extends Component {
       </Map>
     );
   }
+
 }
