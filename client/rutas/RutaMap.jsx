@@ -28,6 +28,17 @@ export default class RutaMap extends Component {
 
   render() {
     const position = [this.state.lat, this.state.lng];
+
+    var stationMarker = L.icon({
+      iconUrl: 'http://icon-rainbow.com/i/icon_05907/icon_059070_256.png',
+      iconSize: [120, 80],
+      iconAnchor: [38, 38],
+      popupAnchor: [20, -30],
+    //  shadowUrl: '',
+    //  shadowSize: [68, 95],
+    //  shadowAnchor: [22, 94]
+    });
+
     return (
       <Map center={position} zoom={this.state.zoom}>
         <TileLayer
@@ -35,7 +46,7 @@ export default class RutaMap extends Component {
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
         />
         {this.rutas().map((ruta)=>{
-          return <Marker position={[ruta.latitud, ruta.longitud]}>
+          return <Marker icon={stationMarker} position={[ruta.latitud, ruta.longitud]}>
             <Popup>
               <span>Location. <br/>{ruta.text}</span>
             </Popup>
