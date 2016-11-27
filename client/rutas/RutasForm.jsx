@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default class RutasForm extends Component {
 
@@ -55,8 +56,12 @@ export default class RutasForm extends Component {
             ref="rutaImgUrl"
             fullWidth={true}
           />
-        <input className="btn btn-large"
-          type="submit" />
+          <RaisedButton
+            label="Submit query"
+            type="submit"
+            className="button-submit"
+            primary={true}
+          />
       </form>
       </MuiThemeProvider>
 
