@@ -24,9 +24,13 @@ deleteResolution(){
     d.getHours(); // => 9
     d.getMinutes(); // =>  30
     d.getSeconds(); // => 51
+    var container = {
+      'width':'100%'
+    };
     return(
       <div>
         <MuiThemeProvider>
+        <div className={container}>
           <Paper>
             <ul>
               <li>
@@ -49,6 +53,8 @@ deleteResolution(){
               </li>
             </ul>
           </Paper>
+          </div>
+
         </MuiThemeProvider>
       </div>
     )
