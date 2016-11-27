@@ -5,6 +5,9 @@ import RutasForm from './RutasForm.jsx';
 import RutaSingle from './RutaSingle.jsx';
 import RutaMap from './RutaMap.jsx';
 import OnlineUserList from '../users/OnlineUserList.jsx';
+import {Responsive, WidthProvider} from 'react-grid-layout';
+
+const ResponsiveReactGridLayout = WidthProvider(Responsive);
 
 
 Rutas = new Mongo.Collection("rutas");
@@ -38,23 +41,26 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
     }
     return (
       <div>
-        <div className="row">
-          <div className="col l2 m4 s6">
+        <ResponsiveReactGridLayout
+          className="layout"
+          breakpoints={{lg: 1200, md: 996, sm: 768, xs: 480, xxs: 0}}
+          cols={{lg: 12, md: 11, sm: 10, xs: 7, xxs: 2}}
+          margin={[number, number] = [15, 15]}>
+          <div key="a" data-grid={{x: 0, y: 0, w: 2, h: 10, static: true}}>
             {this.rutas().map((ruta)=>{
               return <RutaSingle key={ruta._id} ruta={ruta} />
             })}
           </div>
-          <div className="col l8 m8 s6">
+          <div key="b" data-grid={{x: 2, y: 0, w: 8, h: 10, static: true}}>
             <div style={styles.leafletContainer}>
-                 <RutaMap />
+              <RutaMap />
             </div>
           </div>
-          <div className="col l2 m12 s12">
-            <RutasForm />
-            <OnlineUserList />
-
+          <div key="c" data-grid={{x: 10, y: 0, w: 2, h: 10, static: true}}>
+          <RutasForm />
+          <OnlineUserList />
           </div>
-        </div>
+        </ResponsiveReactGridLayout>
       </div>
 
     )
