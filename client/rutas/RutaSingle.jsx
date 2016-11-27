@@ -38,10 +38,11 @@ deleteRuta(){
                 leftAvatar={<Avatar src={this.props.ruta.url}/>}
                 rightIcon={<ActionInfo onClick={this.deleteRuta.bind(this)}/>}
                 primaryText={this.props.ruta.text}
-                //secondaryText={{`${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`}}
+                secondaryText={`${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`}
                 href={`/rutas/${this.props.ruta._id}`}
                 />
-              </List>
+              <Divider inset={true} />  
+            </List>
         </MuiThemeProvider>
       </div>
     )
