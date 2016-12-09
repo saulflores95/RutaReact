@@ -44,7 +44,8 @@ handleClose() {
             title="Rutatj.io"
             iconClassNameRight="muidocs-icon-navigation-expand-more"
             onLeftIconButtonTouchTap={this.handleToggle}
-            style={styles.appBar}>
+            style={styles.appBar}
+            >
           </AppBar>
         </MuiThemeProvider>
         <MuiThemeProvider>
@@ -54,7 +55,7 @@ handleClose() {
               width={300}
               docked={false}
               onRequestChange={(open) => this.setState({open})}>
-              <MenuItem onTouchTap={this.handleClose} href="/">Home</MenuItem>
+              <MenuItem onTouchTap={this.handleClose} href="/rutas">Home</MenuItem>
               <MenuItem onTouchTap={this.handleClose} href="/about">About us</MenuItem>
               <MenuItem>{<AccountsUI />}</MenuItem>
             </Drawer>

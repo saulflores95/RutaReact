@@ -30,10 +30,10 @@ export default class RutaMap extends Component {
     const position = [this.state.lat, this.state.lng];
 
     var stationMarker = L.icon({
-      iconUrl: 'http://icon-rainbow.com/i/icon_05907/icon_059070_256.png',
-      iconSize: [120, 80],
+      iconUrl: 'https://s15.postimg.org/x8j35nsqz/Icon.png',
+      iconSize: [80, 80],
       iconAnchor: [38, 38],
-      popupAnchor: [20, -30],
+      popupAnchor: [0, -30],
     //  shadowUrl: '',
     //  shadowSize: [68, 95],
     //  shadowAnchor: [22, 94]

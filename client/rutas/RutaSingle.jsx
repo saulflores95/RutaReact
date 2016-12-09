@@ -41,7 +41,7 @@ deleteRuta(){
                 secondaryText={`${d.getHours()}:${d.getMinutes()}:${d.getSeconds()}`}
                 href={`/rutas/${this.props.ruta._id}`}
                 />
-              <Divider inset={true} />  
+              <Divider inset={true} />
             </List>
         </MuiThemeProvider>
       </div>
