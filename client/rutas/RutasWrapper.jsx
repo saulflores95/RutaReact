@@ -30,6 +30,9 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
 
   render(){
     var styles = {
+      rutasWrapper:{
+        paddingTop: 75,
+      },
       leafletContainer: {
         width: '100%',
         height: '100vh',
@@ -40,7 +43,7 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
       }
     }
     return (
-      <div>
+      <div style={styles.rutasWrapper}>
         <Row>
             <Col xs={6} sm={4} md={4} lg={4}>
               <div style={styles.rutasContainer}>
