@@ -30,28 +30,35 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
 
   render(){
     var styles = {
+      rutasWrapper:{
+        paddingTop: 75,
+      },
       leafletContainer: {
         width: '100%',
-        height: '1000',
+        height: '100vh',
       },
       rutasContainer:{
         overflow:'scroll',
+        height: '100vh',
       }
     }
     return (
-      <div>
+      <div style={styles.rutasWrapper}>
         <Row>
-            <Col xs={6} sm={4} md={2} lg={2}>
-              {this.rutas().map((ruta)=>{
-                return <RutaSingle key={ruta._id} ruta={ruta} />
-              })}
+            <Col xs={6} sm={4} md={4} lg={4}>
+              <div style={styles.rutasContainer}>
+                {this.rutas().map((ruta)=>{
+                  return <RutaSingle key={ruta._id} ruta={ruta} />
+                })}
+              </div>
+
             </Col>
             <Col xs={6} sm={8} md={8} lg={8}>
               <div style={styles.leafletContainer}>
                 <RutaMap />
               </div>
             </Col>
-            <Col xs={12} sm={12} md={2} lg={2}>
+            <Col xs={12} sm={12} md={12} lg={12}>
               <RutasForm />
               <OnlineUserList />
             </Col>

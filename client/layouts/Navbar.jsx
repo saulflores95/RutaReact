@@ -12,10 +12,18 @@ injectTapEventPlugin();
 const styles = {
   appBar: {
     flexWrap: 'wrap',
+    position: "fixed",
+    left: "0",
+    top: "0",
+    width: "100%",
+    zIndex: '9999'
   },
   tabs: {
     width: '100%'
-  }
+  },
+  sideNav: {
+    zIndex: '20000'
+  },
 };
 
 export default class Navbar extends Component{
@@ -49,7 +57,7 @@ handleClose() {
           </AppBar>
         </MuiThemeProvider>
         <MuiThemeProvider>
-        <div>
+        <div style={styles.sideNav}>
             <Drawer
               open={this.state.open}
               width={300}
