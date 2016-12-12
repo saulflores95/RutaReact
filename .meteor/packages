@@ -37,8 +37,6 @@ themeteorchef:bert
 
 check
 
-metrophobe:materialize
-
 mdg:geolocation
 
 react-meteor-data

@@ -9,9 +9,9 @@ export default class RutaMap extends Component {
   constructor() {
     super();
     this.state = {
-      lat: 32.53259,
-      lng: -116.96877,
-      zoom: 10,
+      lat: 32.5194358,
+      lng: -117.0101997,
+      zoom: 15,
       subscription: {
         rutas: Meteor.subscribe("allRutas")
       }
@@ -28,6 +28,17 @@ export default class RutaMap extends Component {
 
   render() {
     const position = [this.state.lat, this.state.lng];
+
+    var stationMarker = L.icon({
+      iconUrl: 'https://s15.postimg.org/x8j35nsqz/Icon.png',
+      iconSize: [80, 80],
+      iconAnchor: [38, 38],
+      popupAnchor: [0, -30],
+    //  shadowUrl: '',
+    //  shadowSize: [68, 95],
+    //  shadowAnchor: [22, 94]
+    });
+
     return (
       <Map center={position} zoom={this.state.zoom}>
         <TileLayer
@@ -35,7 +46,7 @@ export default class RutaMap extends Component {
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
         />
         {this.rutas().map((ruta)=>{
-          return <Marker position={[ruta.latitud, ruta.longitud]}>
+          return <Marker icon={stationMarker} position={[ruta.latitud, ruta.longitud]}>
             <Popup>
               <span>Location. <br/>{ruta.text}</span>
             </Popup>
@@ -45,4 +56,5 @@ export default class RutaMap extends Component {
       </Map>
     );
   }
+
 }

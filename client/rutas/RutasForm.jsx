@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
 
 export default class RutasForm extends Component {
 
   addRuta(event){
     event.preventDefault();
-    var text = this.refs.rutaTitle.value.trim();
-    var longitud = this.refs.rutaLongitud.value;
-    var latitud = this.refs.rutaLatitud.value;
-    var url = this.refs.rutaImgUrl.value;
+    var text = this.refs.rutaTitle.getValue();
+    var longitud = this.refs.rutaLongitud.getValue();
+    var latitud = this.refs.rutaLatitud.getValue();
+    var url = this.refs.rutaImgUrl.getValue();
 
     console.log(text);
     console.log(longitud);
@@ -19,10 +22,10 @@ export default class RutasForm extends Component {
         if(error){
           Bert.alert( 'Ingresa a tu cuenta o registrate!', 'danger', 'growl-top-right' );
         }else{
-        this.refs.rutaTitle.value = "";
-        this.refs.rutaLongitud.value = "";
-        this.refs.rutaLatitud.value = "";
-        this.refs.rutaImgUrl.value = "";
+        this.refs.rutaTitle.setState({ value: "" });
+        this.refs.rutaLongitud.setState({ value: "" });
+        this.refs.rutaLatitud.setState({ value: "" });
+        this.refs.rutaImgUrl.setState({ value: "" });
       }
     });
 
@@ -31,28 +34,37 @@ export default class RutasForm extends Component {
 
   render(){
     return (
+      <MuiThemeProvider>
       <form className="new-ruta" onSubmit={this.addRuta.bind(this)}>
-        <input
-          type="text"
-          ref="rutaTitle"
-          placeholder="Agrega una ruta" />
-        <input
-          type="number"
-          ref="rutaLongitud"
-          placeholder="Longitud"
-          step="any" />
-        <input
-          type="number"
-          ref="rutaLatitud"
-          placeholder="Latitud"
-          step="any"/>
-        <input
-          type="text"
-          ref="rutaImgUrl"
-          placeholder="url de imagen" />
-        <input className="btn btn-large"
-          type="submit" />
+          <TextField
+            hintText="Agrega una ruta"
+            ref="rutaTitle"
+            fullWidth={true}
+          />
+          <TextField
+            hintText="Longitud"
+            ref="rutaLongitud"
+            fullWidth={true}
+          />
+          <TextField
+            hintText="Latitud"
+            ref="rutaLatitud"
+            fullWidth={true}
+          />
+          <TextField
+            hintText="url de imagen"
+            ref="rutaImgUrl"
+            fullWidth={true}
+          />
+          <RaisedButton
+            label="Submit query"
+            type="submit"
+            className="button-submit"
+            primary={true}
+          />
       </form>
+      </MuiThemeProvider>
+
     )
   }
 

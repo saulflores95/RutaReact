@@ -3,22 +3,20 @@ import ReactDOM from 'react-dom';
 import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import RutaSingleMap from './RutaSingleMap.jsx';
 
-export default class RutaDetail extends Component{
+export default class RutaDetail extends TrackerReact(Component){
   constructor(){
     super();
 
     this.state = {
       subscription: {
-        rutas: Meteor.subscribe("userRutas")
+        rutas: Meteor.subscribe("allRutas")
       }
     }
   }
 
-
   ruta(){
     return Rutas.findOne(this.props.id);
   }
-
 
   render(){
     let res = this.ruta();
@@ -30,17 +28,15 @@ export default class RutaDetail extends Component{
       leafletContainer: {
         width: '100%',
         height: '1000px',
-
       }
     }
-
     return(
       <div>
-        <div className="row">
-          <div className="col l3 m3 s6">
+        <div>
+          <div>
             <h3>{res.text}</h3>
           </div>
-          <div className="col l9 m9 s6">
+          <div>
             <div style={styles.leafletContainer}>
               <RutaSingleMap ruta={res} />
             </div>
@@ -51,4 +47,5 @@ export default class RutaDetail extends Component{
       </div>
     )
   }
+
 }

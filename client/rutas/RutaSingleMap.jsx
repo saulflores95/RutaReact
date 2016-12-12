@@ -10,7 +10,6 @@ export default class RutaSingleMap extends TrackerReact(Component) {
     const position = [this.props.ruta.latitud, this.props.ruta.longitud];
     const zoom = 17;
     var userPosition = Geolocation.latLng();
-
     return (
       <Map center={position} zoom={zoom}>
           <TileLayer
