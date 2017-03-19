@@ -34,7 +34,6 @@ export default class OnlineUserList extends TrackerReact(Component){
       <div id="userListComponent">
         <h3>Online User List</h3>
         {this.allUsers().map((user)=>{
-          this.updateUserLocation(user, userPosition.lat, userPosition.lng);
           return(
             <div>
               <h4>{user._id} </h4>

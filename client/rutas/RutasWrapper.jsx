@@ -58,10 +58,6 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
                 <RutaMap />
               </div>
             </Col>
-            <Col xs={12} sm={12} md={12} lg={12}>
-              <RutasForm />
-              <OnlineUserList />
-            </Col>
         </Row>
       </div>
 

@@ -24,6 +24,10 @@ export default class OnlineUserMarker extends TrackerReact(Component){
     return Meteor.users.find();
   }
 
+  updateUserLocation(user, lat, lng){
+      Meteor.call('updateUser', user, lat, lng);
+  }
+
   render(){
     const userPosition = Geolocation.latLng();
     var busMarker = L.icon({
@@ -34,11 +38,10 @@ export default class OnlineUserMarker extends TrackerReact(Component){
     return(
       <div>
         {this.allUsers().map((user)=>{
-          return <Marker icon={busMarker} position={[user.latitude, user.longitude]}>
+          {this.updateUserLocation(user, userPosition.lat, userPosition.lng);}
+          return <Marker key={user._id} icon={busMarker} position={[user.latitude, user.longitude]}>
                     <Popup>
-                      <h5>Hello: {user._id},
-                        Latitud: {user.latitude},
-                        Longitud: {userPosition.lng}</h5>
+                      <h5>{user.emails[0].address}</h5>
                     </Popup>
                   </Marker>
         })}
