@@ -10,6 +10,23 @@
     "node": "4.2.6",
     "npm": "3.8.7"
   },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "allowImportExportEverywhere": true
+    },
+    "plugins": [
+      "meteor"
+    ],
+    "extends": [
+      "airbnb",
+      "plugin:meteor/recommended"
+    ],
+    "settings": {
+      "import/resolver": "meteor"
+    },
+    "rules": {}
+  },
   "dependencies": {
     "hammerjs": "^2.0.8",
     "i": "^0.3.5",
@@ -45,22 +62,5 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-meteor": "^4.0.1",
     "eslint-plugin-react": "^6.10.0"
-  },
-  "eslintConfig": {
-   "parser": "babel-eslint",
-   "parserOptions": {
-     "allowImportExportEverywhere": true
-   },
-   "plugins": [
-     "meteor"
-   ],
-   "extends": [
-     "airbnb",
-     "plugin:meteor/recommended"
-   ],
-   "settings": {
-     "import/resolver": "meteor"
-   },
-   "rules": {}
- }
+  }
 }
