@@ -16,13 +16,13 @@ const styles = {
     left: "0",
     top: "0",
     width: "100%",
-    zIndex: '999'
+    zIndex: '9999'
   },
   tabs: {
     width: '100%'
   },
   sideNav: {
-    zIndex: '9999'
+    zIndex: '20000'
   },
 };
 

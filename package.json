@@ -2,30 +2,11 @@
   "name": "rutareact",
   "private": true,
   "scripts": {
-    "start": "meteor run",
-    "lint": "eslint .",
-    "pretest": "npm run lint --silent"
+    "start": "meteor run"
   },
   "engines": {
     "node": "4.2.6",
     "npm": "3.8.7"
-  },
-  "eslintConfig": {
-    "parser": "babel-eslint",
-    "parserOptions": {
-      "allowImportExportEverywhere": true
-    },
-    "plugins": [
-      "meteor"
-    ],
-    "extends": [
-      "airbnb",
-      "plugin:meteor/recommended"
-    ],
-    "settings": {
-      "import/resolver": "meteor"
-    },
-    "rules": {}
   },
   "dependencies": {
     "hammerjs": "^2.0.8",
@@ -52,15 +33,5 @@
   "main": "index.js",
   "author": "",
   "license": "ISC",
-  "description": "",
-  "devDependencies": {
-    "babel-eslint": "^7.1.1",
-    "eslint": "^3.18.0",
-    "eslint-config-airbnb": "^14.1.0",
-    "eslint-import-resolver-meteor": "^0.3.4",
-    "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^4.0.0",
-    "eslint-plugin-meteor": "^4.0.1",
-    "eslint-plugin-react": "^6.10.0"
-  }
+  "description": ""
 }
