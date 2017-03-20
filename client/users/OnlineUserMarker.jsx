@@ -16,9 +16,11 @@ export default class OnlineUserMarker extends TrackerReact(Component){
     }
   }
 
+/*
   componentWillUnmount(){
     this.state.subscription.users.stop();
   }
+*/
 
   allUsers(){
     return Meteor.users.find();
@@ -26,7 +28,7 @@ export default class OnlineUserMarker extends TrackerReact(Component){
 
   updateUserLocation(user, lat, lng){
       Meteor.call('updateUser', user, lat, lng);
-      console.log('Upadting MARKER position: ', user.emails[0].address);
+      console.log('UserId: ' + user._id + ' is changing to: ' + lat);
   }
 
   render(){
@@ -40,11 +42,13 @@ export default class OnlineUserMarker extends TrackerReact(Component){
       <div>
         {this.allUsers().map((user)=>{
           this.updateUserLocation(user, userPosition.lat, userPosition.lng);
-          return <Marker icon={busMarker} position={[user.latitude, user.longitude]}>
-                    <Popup>
-                      <h5>{user.emails[0].address}</h5>
-                    </Popup>
-                  </Marker>
+          return (
+            <Marker key={user._id} icon={busMarker} position={[user.latitude, user.longitude]}>
+              <Popup>
+                <h5>{user.emails[0].address}</h5>
+              </Popup>
+            </Marker>
+          )
         })}
       </div>
     )

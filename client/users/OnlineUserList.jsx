@@ -15,12 +15,17 @@ export default class OnlineUserList extends TrackerReact(Component){
       }
     }
   }
-  componentWillUnmount(){
-    this.state.subscription.users.stop();
-  }
+
+  /*
+    componentWillUnmount(){
+      this.state.subscription.users.stop();
+    }
+  */
+
   allUsers(){
     return Meteor.users.find();
   }
+
   updateUserLocation(user, lat, lng){
       Meteor.call('updateUser', user, lat, lng);
       console.log('UserId: ' + user._id);
@@ -37,7 +42,7 @@ export default class OnlineUserList extends TrackerReact(Component){
           this.updateUserLocation(user, userPosition.lat, userPosition.lng);
           return(
             <div>
-              <h4>{user._id} </h4>
+              <h5>{user._id}</h5>
               <h5>{user.latitude}</h5>
               <h5>{user.longitude}</h5>
             </div>

@@ -1,11 +1,12 @@
 module.exports = {
   servers: {
     one: {
-      host: '107.170.233.245',
+      host: 'rutatj.io',
       username: 'root',
       // pem:
       password: 'poloboy1',
       // or leave blank for authenticate from ssh-agent
+      //C:\Users\Saul\AppData\Roaming\npm\mup
     }
   },
 

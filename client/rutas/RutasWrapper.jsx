@@ -28,6 +28,20 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
     return Rutas.find().fetch();
   }
 
+  check(){
+    if(Meteor.userId()){
+      return (
+        <RutasForm />
+      )
+    }else{
+      return (
+        <div>
+          <span>login</span>
+        </div>
+      )
+    }
+  }
+
   render(){
     var styles = {
       rutasWrapper:{
@@ -59,8 +73,7 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
               </div>
             </Col>
             <Col xs={12} sm={12} md={12} lg={12}>
-              <RutasForm />
-              <OnlineUserList />
+              {this.check()}
             </Col>
         </Row>
       </div>

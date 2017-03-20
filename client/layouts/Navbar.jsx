@@ -16,13 +16,13 @@ const styles = {
     left: "0",
     top: "0",
     width: "100%",
-    zIndex: '9999'
+    zIndex: '99'
   },
   tabs: {
     width: '100%'
   },
   sideNav: {
-    zIndex: '20000'
+    zIndex: '999'
   },
 };
 
@@ -46,7 +46,6 @@ handleClose() {
   render(){
     return(
       <div>
-
         <MuiThemeProvider>
           <AppBar
             title="Rutatj.io"

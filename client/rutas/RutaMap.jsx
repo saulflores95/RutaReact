@@ -28,7 +28,11 @@ export default class RutaMap extends Component {
 
   render() {
     const position = [this.state.lat, this.state.lng];
-
+    var styles = {
+      'map':{
+        'zIndex':'9'
+      }
+    }
     var stationMarker = L.icon({
       iconUrl: 'https://s15.postimg.org/x8j35nsqz/Icon.png',
       iconSize: [80, 80],
@@ -40,7 +44,7 @@ export default class RutaMap extends Component {
     });
 
     return (
-      <Map center={position} zoom={this.state.zoom}>
+      <Map style={styles.map} center={position} zoom={this.state.zoom}>
         <TileLayer
           attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
           url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
@@ -48,7 +52,7 @@ export default class RutaMap extends Component {
         {this.rutas().map((ruta)=>{
           return <Marker icon={stationMarker} position={[ruta.latitud, ruta.longitud]}>
             <Popup>
-              <span>Location. <br/>{ruta.text}</span>
+              <span>{ruta.text}</span>
             </Popup>
           </Marker>
         })}

@@ -13,5 +13,5 @@ Meteor.publish("allUsers", function() {
 });
 
 Meteor.publish("onlineUsers", function(){
-  return Meteor.users.find({ "status.online": true }, {fields: { latitude: 1, longitude: 1 }});
+  return Meteor.users.find({ "status.online": true }, {fields: { latitude: 1, longitude: 1, emails: 1 }});
 });
