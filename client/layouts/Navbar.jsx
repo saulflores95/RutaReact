@@ -9,23 +9,6 @@ import AccountsUI from '../AccountsUI.jsx';
 
 injectTapEventPlugin();
 
-const styles = {
-  appBar: {
-    flexWrap: 'wrap',
-    position: "fixed",
-    left: "0",
-    top: "0",
-    width: "100%",
-    zIndex: '99'
-  },
-  tabs: {
-    width: '100%'
-  },
-  sideNav: {
-    zIndex: '999'
-  },
-};
-
 export default class Navbar extends Component{
 
   constructor() {
@@ -44,13 +27,34 @@ handleClose() {
 }
 
   render(){
+    const styles = {
+      appBar: {
+        flexWrap: 'wrap',
+        position: "fixed",
+        left: "0",
+        top: "0",
+        width: "100%",
+        zIndex: '99'
+      },
+      tabs: {
+        width: '100%'
+      },
+      sideNav: {
+        zIndex: '999'
+      },
+      title: {
+        textDecoration: 'none !important',
+        color: 'white !important'
+      }
+    };
+
     return(
       <div>
         <MuiThemeProvider>
           <AppBar
-            title="Rutatj.io"
+            title={<span>Rutatj.io</span>}
             iconClassNameRight="muidocs-icon-navigation-expand-more"
-            onLeftIconButtonTouchTap={this.handleToggle}
+            onLeftIconButtonTouchTap={(event) => {this.handleToggle(); event.preventDefault();}}
             style={styles.appBar}
             >
           </AppBar>
@@ -62,8 +66,8 @@ handleClose() {
               width={300}
               docked={false}
               onRequestChange={(open) => this.setState({open})}>
-              <MenuItem onTouchTap={this.handleClose} href="/rutas">Home</MenuItem>
-              <MenuItem onTouchTap={this.handleClose} href="/about">About us</MenuItem>
+              <MenuItem onClick={this.handleClose} href="/rutas">Home</MenuItem>
+              <MenuItem onClick={this.handleClose} href="/about">About us</MenuItem>
               <MenuItem>{<AccountsUI />}</MenuItem>
             </Drawer>
           </div>
