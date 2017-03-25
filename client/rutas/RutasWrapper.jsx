@@ -53,6 +53,7 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
       },
       rutasContainer:{
         overflow:'scroll',
+        overflowX: 'hidden',
         height: '100%',
         width: '100%',
       },
