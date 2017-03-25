@@ -70,9 +70,11 @@ export default class RutaMap extends Component {
         <Hidden xl lg md>
           <Control position='topleft'>
             <MuiThemeProvider>
-              <FloatingActionButton mini onClick={this.handleToggle.bind(this)}>
-                <ContentAdd/>
-              </FloatingActionButton>
+              <div onClick={this.handleToggle.bind(this)}>
+                <FloatingActionButton mini >
+                  <ContentAdd/>
+                </FloatingActionButton>
+              </div>
             </MuiThemeProvider>
           </Control>
         </Hidden>

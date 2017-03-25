@@ -34,13 +34,13 @@ handleClose() {
         left: "0",
         top: "0",
         width: "100%",
-        zIndex: '99'
+        zIndex: '999'
       },
       tabs: {
         width: '100%'
       },
       sideNav: {
-        zIndex: '999'
+        zIndex: '9999'
       },
       title: {
         textDecoration: 'none !important',

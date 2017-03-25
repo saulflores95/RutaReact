@@ -45,23 +45,34 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
   render(){
     var styles = {
       rutasWrapper:{
-        paddingTop: 64,
         height: '100%'
       },
       leafletContainer: {
         width: '100%',
-        height: '89vh'
+        height: '100%'
       },
       rutasContainer:{
         overflow:'scroll',
-        height: '89vh'
+        height: '100%',
+        width: '100%',
+      },
+      rowWrapper: {
+        width: '100%',
+        height: '100%',
+        marginLeft: 0,
+        marginRight:0
+      },
+      colWrapper: {
+        height: '100%',
+        paddingRight: 0,
+        paddingLeft: 0
       }
     }
     return (
       <div style={styles.rutasWrapper}>
-        <Row>
+        <Row style={styles.rowWrapper}>
           <Hidden xs sm>
-            <Col xs={6} sm={4} md={4} lg={4}>
+            <Col xs={6} sm={4} md={4} lg={4} style={styles.colWrapper}>
               <div style={styles.rutasContainer}>
                 {this.rutas().map((ruta) => {
                   return <RutaSingle key={ruta._id} ruta={ruta} />
@@ -69,18 +80,13 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
               </div>
             </Col>
           </Hidden>
-          <Col xs={12} sm={12} md={8} lg={8}>
+          <Col xs={12} sm={12} md={8} lg={8} style={styles.colWrapper}>
             <div style={styles.leafletContainer}>
               <RutaMap />
             </div>
           </Col>
         </Row>
       </div>
-
     )
   }
 }
-
-//  <Col xs={12} sm={12} md={12} lg={12}>
-//  {this.check()}
-//  </Col>
