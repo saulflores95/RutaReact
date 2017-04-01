@@ -38,6 +38,8 @@ Meteor.methods({
         console.log(user);
         console.log(lat);
         console.log(lng);
+        lat = parseFloat(lat);
+        lng = parseFloat(lng);
         Meteor.users.update(user._id, {
           $set: {
             longitude: lng,

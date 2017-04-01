@@ -4,6 +4,7 @@ import TrackerReact from 'meteor/ultimatejs:tracker-react';
 import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
 import { Meteor } from 'meteor/meteor';
 import { Geolocation } from 'meteor/mdg:geolocation';
+import L from 'leaflet';
 
 export default class OnlineUserMarker extends TrackerReact(Component){
   constructor(){
@@ -42,8 +43,10 @@ export default class OnlineUserMarker extends TrackerReact(Component){
       <div>
         {this.allUsers().map((user)=>{
           this.updateUserLocation(user, userPosition.lat, userPosition.lng);
+          const lat = parseFloat(user.latitude);
+          const lon = parseFloat(user.longitude);
           return (
-            <Marker key={user._id} icon={busMarker} position={[user.latitude, user.longitude]}>
+            <Marker key={user._id} icon={busMarker} position={[lat, lon]}>
               <Popup>
                 <h5>{user.emails[0].address}</h5>
               </Popup>
