@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Map, Marker, Popup, TileLayer } from 'react-leaflet';
+import { Map, Marker, Popup, TileLayer, Circle, FeatureGroup } from 'react-leaflet';
 import ReactDOM from 'react-dom';
 import OnlineUserMarker from '../users/OnlineUserMarker.jsx';
 import Control from 'react-leaflet-control';
@@ -61,11 +61,12 @@ export default class RutaMap extends Component {
     //  shadowAnchor: [22, 94]
     });
 
+    var rutas = [];
+
     return (
       <Map style={styles.map} center={position} zoom={this.state.zoom}>
         <TileLayer
-          attribution='<a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-          url='http://{s}.tile.osm.org/{z}/{x}/{y}.png'
+          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' />
         />
         <Hidden xl lg md>
           <Control position='topleft'>
@@ -78,18 +79,27 @@ export default class RutaMap extends Component {
             </MuiThemeProvider>
           </Control>
         </Hidden>
+        <FeatureGroup color="purple">
+          <Popup>
+            <span>Popup in FeatureGroup</span>
+          </Popup>
+        </FeatureGroup>
         <div>
         {this.rutas().map((ruta)=>{
+          {rutas.push(ruta)}
+          {console.log('Cantidad Push', rutas)}
           return (
-            <Marker icon={stationMarker} position={[ruta.latitud, ruta.longitud]}>
-              <Popup>
-                <span>{ruta.text}</span>
-              </Popup>
-            </Marker>
+            <div>
+              <Marker icon={stationMarker} position={[ruta.latitud, ruta.longitud]}>
+                <Popup>
+                  <span>{ruta.text}</span>
+                </Popup>
+              </Marker>
+            </div>
           );
         })}
         </div>
-        <OnlineUserMarker />
+        <OnlineUserMarker rutas={rutas}/>
         <MuiThemeProvider>
           <div>
             <Drawer

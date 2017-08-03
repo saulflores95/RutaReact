@@ -30,7 +30,6 @@ Meteor.methods({
       }
       Rutas.remove(ruta._id);
     },
-
   updateUser(user, lat, lng) {
     console.log("Update Method Initlized");
     console.log("***********************");
