@@ -1,37 +1,37 @@
-import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
-import TrackerReact from 'meteor/ultimatejs:tracker-react';
-import RutaSingleMap from './RutaSingleMap.jsx';
+import React, {Component} from 'react'
+import ReactDOM from 'react-dom'
+import TrackerReact from 'meteor/ultimatejs:tracker-react'
+import RutaSingleMap from './RutaSingleMap.jsx'
 import LoadingComponent from '../layouts/LoadingComponent.jsx'
 
-export default class RutaDetail extends TrackerReact(Component){
-  constructor(){
-    super();
+export default class RutaDetail extends TrackerReact(Component) {
+  constructor () {
+    super()
 
     this.state = {
       subscription: {
-        rutas: Meteor.subscribe("allRutas")
+        rutas: Meteor.subscribe('allRutas')
       }
     }
   }
 
-  ruta(){
-    return Rutas.findOne(this.props.id);
+  ruta () {
+    return Rutas.findOne(this.props.id)
   }
 
-  render(){
-    let res = this.ruta();
+  render () {
+    let res = this.ruta()
     const styles = {
       leafletContainer: {
         width: '100%',
-        height: '100vh',
+        height: '100vh'
       }
     }
-    if(!res){
-      return(<div><LoadingComponent /></div>);
+    if (!res) {
+      return (<div><LoadingComponent /></div>)
     }
 
-    return(
+    return (
       <div>
         <div>
           <div>
@@ -44,9 +44,7 @@ export default class RutaDetail extends TrackerReact(Component){
           </div>
         </div>
 
-
       </div>
     )
   }
-
 }

@@ -1,105 +1,103 @@
-import React, {Component} from 'react';
-import { Map, Marker, Popup, TileLayer, Circle, FeatureGroup } from 'react-leaflet';
-import ReactDOM from 'react-dom';
-import OnlineUserMarker from '../users/OnlineUserMarker.jsx';
-import Control from 'react-leaflet-control';
-import FloatingActionButton from 'material-ui/FloatingActionButton';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import ContentAdd from 'material-ui/svg-icons/content/add';
-import Drawer from 'material-ui/Drawer';
-import MenuItem from 'material-ui/MenuItem';
-import { Hidden } from 'react-grid-system';
-import L from 'leaflet';
-import RutaSingle from './RutaSingle.jsx';
+import React, {Component} from 'react'
+import { Map, Marker, Popup, TileLayer, Circle, FeatureGroup } from 'react-leaflet'
+import ReactDOM from 'react-dom'
+import OnlineUserMarker from '../users/OnlineUserMarker.jsx'
+import Control from 'react-leaflet-control'
+import FloatingActionButton from 'material-ui/FloatingActionButton'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import ContentAdd from 'material-ui/svg-icons/content/add'
+import Drawer from 'material-ui/Drawer'
+import MenuItem from 'material-ui/MenuItem'
+import { Hidden } from 'react-grid-system'
+import L from 'leaflet'
+import RutaSingle from './RutaSingle.jsx'
 
 export default class RutaMap extends Component {
-
-  constructor() {
-    super();
+  constructor () {
+    super()
     this.state = {
       lat: 32.5194358,
       lng: -117.0101997,
       zoom: 15,
       open: false,
       subscription: {
-        rutas: Meteor.subscribe("allRutas")
+        rutas: Meteor.subscribe('allRutas')
       }
-    };
+    }
   }
 
   handleToggle () {
-    this.setState({open: !this.state.open});
+    this.setState({open: !this.state.open})
   }
 
   handleClose () {
-    this.setState({open: false});
+    this.setState({open: false})
   }
 
-
-  componentWillUnmount(){
-    this.state.subscription.rutas.stop();
+  componentWillUnmount () {
+    this.state.subscription.rutas.stop()
   }
 
-  rutas(){
-    return Rutas.find().fetch();
+  rutas () {
+    return Rutas.find().fetch()
   }
 
-  render() {
-    const position = [this.state.lat, this.state.lng];
+  render () {
+    const position = [this.state.lat, this.state.lng]
     var styles = {
-      'rutasWrapper':{
-        'zIndex':'9999'
+      'rutasWrapper': {
+        'zIndex': '9999'
       }
     }
     var stationMarker = L.icon({
       iconUrl: 'https://s15.postimg.org/x8j35nsqz/Icon.png',
       iconSize: [80, 80],
       iconAnchor: [38, 38],
-      popupAnchor: [0, -30],
+      popupAnchor: [0, -30]
     //  shadowUrl: '',
     //  shadowSize: [68, 95],
     //  shadowAnchor: [22, 94]
-    });
+    })
 
-    var rutas = [];
+    var rutas = []
 
     return (
       <Map style={styles.map} center={position} zoom={this.state.zoom}>
         <TileLayer
-          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' />
+          url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
         />
         <Hidden xl lg md>
           <Control position='topleft'>
             <MuiThemeProvider>
               <div onClick={this.handleToggle.bind(this)}>
                 <FloatingActionButton mini >
-                  <ContentAdd/>
+                  <ContentAdd />
                 </FloatingActionButton>
               </div>
             </MuiThemeProvider>
           </Control>
         </Hidden>
-        <FeatureGroup color="purple">
+        <FeatureGroup color='purple'>
           <Popup>
             <span>Popup in FeatureGroup</span>
           </Popup>
         </FeatureGroup>
         <div>
-        {this.rutas().map((ruta)=>{
-          {rutas.push(ruta)}
-          {console.log('Cantidad Push', rutas)}
-          return (
-            <div>
-              <Marker icon={stationMarker} position={[ruta.latitud, ruta.longitud]}>
-                <Popup>
-                  <span>{ruta.text}</span>
-                </Popup>
-              </Marker>
-            </div>
-          );
-        })}
+          {this.rutas().map((ruta) => {
+            { rutas.push(ruta) }
+            { console.log('Cantidad Push', rutas) }
+            return (
+              <div key={ruta._id}>
+                <Marker icon={stationMarker} position={[ruta.latitud, ruta.longitud]}>
+                  <Popup>
+                    <span>{ruta.text}</span>
+                  </Popup>
+                </Marker>
+              </div>
+            )
+          })}
         </div>
-        <OnlineUserMarker rutas={rutas}/>
+        <OnlineUserMarker rutas={rutas} />
         <MuiThemeProvider>
           <div>
             <Drawer
@@ -116,7 +114,6 @@ export default class RutaMap extends Component {
           </div>
         </MuiThemeProvider>
       </Map>
-    );
+    )
   }
-
 }

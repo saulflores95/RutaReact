@@ -1,39 +1,39 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import TrackerReact from 'meteor/ultimatejs:tracker-react';
-import RutasForm from './RutasForm.jsx';
-import RutaSingle from './RutaSingle.jsx';
-import RutaMap from './RutaMap.jsx';
-import OnlineUserList from '../users/OnlineUserList.jsx';
-import {Container, Row, Col, Visible, Hidden } from 'react-grid-system';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import TrackerReact from 'meteor/ultimatejs:tracker-react'
+import RutasForm from './RutasForm.jsx'
+import RutaSingle from './RutaSingle.jsx'
+import RutaMap from './RutaMap.jsx'
+import OnlineUserList from '../users/OnlineUserList.jsx'
+import {Container, Row, Col, Visible, Hidden } from 'react-grid-system'
 
-Rutas = new Mongo.Collection("rutas");
+Rutas = new Mongo.Collection('rutas')
 
 export default class RutasWrapper extends TrackerReact(React.Component) {
-  constructor(){
-    super();
+  constructor () {
+    super()
 
     this.state = {
       subscription: {
-        rutas: Meteor.subscribe("userRutas")
+        rutas: Meteor.subscribe('userRutas')
       }
     }
   }
 
-  componentWillUnmount(){
-    this.state.subscription.rutas.stop();
+  componentWillUnmount () {
+    this.state.subscription.rutas.stop()
   }
 
-  rutas(){
-    return Rutas.find().fetch();
+  rutas () {
+    return Rutas.find().fetch()
   }
 
-  check(){
-    if(Meteor.userId()){
+  check () {
+    if (Meteor.userId()) {
       return (
         <RutasForm />
       )
-    }else{
+    } else {
       return (
         <div>
           <span>login</span>
@@ -42,26 +42,26 @@ export default class RutasWrapper extends TrackerReact(React.Component) {
     }
   }
 
-  render(){
+  render () {
     var styles = {
-      rutasWrapper:{
+      rutasWrapper: {
         height: '100%'
       },
       leafletContainer: {
         width: '100%',
         height: '100%'
       },
-      rutasContainer:{
-        overflow:'scroll',
+      rutasContainer: {
+        overflow: 'scroll',
         overflowX: 'hidden',
         height: '100%',
-        width: '100%',
+        width: '100%'
       },
       rowWrapper: {
         width: '100%',
         height: '100%',
         marginLeft: 0,
-        marginRight:0
+        marginRight: 0
       },
       colWrapper: {
         height: '100%',

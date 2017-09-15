@@ -1,6 +1,6 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Navbar from './Navbar.jsx';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import Navbar from './Navbar.jsx'
 
 const styles = {
   main: {
@@ -10,7 +10,7 @@ const styles = {
 
 export const MainLayout = ({content}) => (
   <div style={styles.main}>
-    <Navbar/>
+    <Navbar />
     <main style={styles.main}>
       {content}
     </main>
