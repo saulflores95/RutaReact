@@ -18,6 +18,11 @@ export default class DriverProfile extends TrackerReact(Component) {
 
   componentWillUnmount () {
     this.state.subscription.rutas.stop()
+    this.state.subscription.users.stop()
+  }
+
+  users() {
+    return Meteor.users.find().fetch()
   }
 
   rutas () {
@@ -25,7 +30,7 @@ export default class DriverProfile extends TrackerReact(Component) {
   }
 
   render () {
-    console.log(user)
+    console.log(this.users())
     const styles = {
       container: {
         'marginTop': '75px',
