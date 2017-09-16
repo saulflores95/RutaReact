@@ -42,3 +42,6 @@ mdg:geolocation
 react-meteor-data
 
 mizzao:user-status
+std:accounts-basic
+std:accounts-semantic
+semantic:ui-css@=2.1.2

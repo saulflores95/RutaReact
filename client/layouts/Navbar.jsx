@@ -5,7 +5,7 @@ import AppBar from 'material-ui/AppBar'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import Drawer from 'material-ui/Drawer'
 import MenuItem from 'material-ui/MenuItem'
-import AccountsUI from '../AccountsUI.jsx'
+import Login from '../Login.jsx'
 
 injectTapEventPlugin()
 
@@ -66,7 +66,7 @@ export default class Navbar extends Component {
               onRequestChange={(open) => this.setState({open})}>
               <MenuItem onClick={this.handleClose} href='/rutas'>Home</MenuItem>
               <MenuItem onClick={this.handleClose} href='/about'>About us</MenuItem>
-              <MenuItem>{<AccountsUI />}</MenuItem>
+              <MenuItem>{<Login />}</MenuItem>
             </Drawer>
           </div>
         </MuiThemeProvider>

@@ -8,6 +8,7 @@ import RutasForm from '../rutas/RutasForm'
 import OnlineUserList from '../users/OnlineUserList'
 import Admin from '../admin/Admin'
 import DriverProfile from '../driver/DriverProfile'
+import Login from '../Login.jsx'
 
 FlowRouter.route('/', {
   action () {
@@ -24,6 +25,15 @@ FlowRouter.route('/about', {
     })
   }
 })
+
+FlowRouter.route('/login', {
+  action () {
+    mount(MainLayout, {
+      content: (<Login  />)
+    })
+  }
+})
+
 
 FlowRouter.route('/add-ruta', {
   action () {
