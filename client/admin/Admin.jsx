@@ -55,20 +55,22 @@ export default class Admin extends TrackerReact(Component) {
             {this.allUsers().map(user => {
               return (
                 <Col key={user._id} sm={12} md={6} lg={4}>
-                  <div style={style.card}>
-                    <div style={style.img} />
-                    <div style={style.info}>
-                      <Row>
-                        <Col md={6} lg={6}>
-                          <h2>{user.emails[0].address}</h2>
-                          <h4>{user.currentStop}</h4>
-                        </Col>
-                        <Col md={6} lg={6}>
-                          <div style={style.marker} />
-                        </Col>
-                      </Row>
+                  <a href={`/driver/${user._id}}`}>
+                    <div style={style.card} href={`/driver/${user._id}}`}>
+                      <div style={style.img} />
+                      <div style={style.info}>
+                        <Row>
+                          <Col md={6} lg={6}>
+                            <h2>{user.emails[0].address}</h2>
+                            <h4>{user.currentStop}</h4>
+                          </Col>
+                          <Col md={6} lg={6}>
+                            <div style={style.marker} />
+                          </Col>
+                        </Row>
+                      </div>
                     </div>
-                  </div>
+                  </a>
                 </Col>
               )
             })}

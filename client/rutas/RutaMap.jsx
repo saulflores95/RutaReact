@@ -18,7 +18,7 @@ export default class RutaMap extends Component {
     this.state = {
       lat: 32.5194358,
       lng: -117.0101997,
-      zoom: 15,
+      zoom: 14,
       open: false,
       subscription: {
         rutas: Meteor.subscribe('allRutas')

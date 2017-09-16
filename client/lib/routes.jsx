@@ -7,6 +7,8 @@ import About from '../About.jsx'
 import RutasForm from '../rutas/RutasForm'
 import OnlineUserList from '../users/OnlineUserList'
 import Admin from '../admin/Admin'
+import DriverProfile from '../driver/DriverProfile'
+
 FlowRouter.route('/', {
   action () {
     mount(MainLayout, {
@@ -58,6 +60,18 @@ FlowRouter.route('/admin', {
       content: (
         <div>
           <Admin />
+        </div>
+      )
+    })
+  }
+})
+
+FlowRouter.route('/driver/:id', {
+  action (params) {
+    mount(MainLayout, {
+      content: (
+        <div>
+          <DriverProfile id={params.id} />
         </div>
       )
     })
