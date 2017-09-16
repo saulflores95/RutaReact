@@ -9,6 +9,7 @@ import OnlineUserList from '../users/OnlineUserList'
 import Admin from '../admin/Admin'
 import DriverProfile from '../driver/DriverProfile'
 import Login from '../Login.jsx'
+import Tracker from 'tracker-component'
 
 FlowRouter.route('/', {
   action () {
@@ -34,6 +35,13 @@ FlowRouter.route('/login', {
   }
 })
 
+FlowRouter.route('/signup', {
+  action () {
+    mount(MainLayout, {
+      content: (<Login  />)
+    })
+  }
+})
 
 FlowRouter.route('/add-ruta', {
   action () {

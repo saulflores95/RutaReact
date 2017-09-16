@@ -40,14 +40,29 @@ class NewLogin extends Accounts.ui.LoginForm {
 }
 
 Accounts.ui.LoginForm = NewLogin;
+Accounts.config({
+  sendVerificationEmail: true,
+  forbidClientAccountCreation: false
+});
+
+Accounts.ui.config({
+  passwordSignupFields: 'EMAIL_ONLY',
+  loginPath: '/login',
+  signUpPath: '/signup',
+  resetPasswordPath: '/reset-password',
+  profilePath: '/profile',
+  onSignedInHook: () => FlowRouter.go('/general'),
+  onSignedOutHook: () => FlowRouter.go('/login'),
+  minimumPasswordLength: 6
+});
 
 export default class NewUser extends Component {
   render() {
     return (
-      <div className="signin" style={{marginTop: 50, display: 'block', marginLeft:'auto', marginRight: 'auto', width: '500'}} >
+      <div style={{marginTop: 50, display: 'block', marginLeft:'auto', marginRight: 'auto', width: 500}} >
         <h2 style={{textAlign: 'center'}}>Register</h2>
         <div>
-          <Accounts.ui.LoginForm formState={ STATES.SIGN_UP }/>
+          <Accounts.ui.LoginForm />
         </div>
       </div>
     );
