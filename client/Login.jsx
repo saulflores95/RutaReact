@@ -44,7 +44,7 @@ Accounts.ui.LoginForm = NewLogin;
 export default class NewUser extends Component {
   render() {
     return (
-      <div className="signin" style={{marginTop: 50, display: 'block', marginLeft:'auto', marginRight: 'auto', width: '500'}} >
+      <div className="signin" style={{marginTop: '50px', display: 'block', marginLeft:'auto', marginRight: 'auto', width: '500px'}} >
         <h2 style={{textAlign: 'center'}}>Register</h2>
         <div>
           <Accounts.ui.LoginForm formState={ STATES.SIGN_UP }/>
